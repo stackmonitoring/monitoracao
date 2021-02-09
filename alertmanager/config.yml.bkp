@@ -1,0 +1,15 @@
+global:
+  http_config:
+    tls_config:
+      insecure_skip_verify: true
+
+route:
+  group_by: [AlertaCPU]
+  receiver: "smscpu"
+
+receivers:
+  - name: "smscpu"
+    webhook_configs:
+      - url: https://morfeu:4443/AeC.WebServices.SMSAPI/v2/sms.asp
+        send_resolved: true
+

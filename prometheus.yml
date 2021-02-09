@@ -1,0 +1,166 @@
+global:
+ scrape_interval: 20s
+ external_labels:
+   monitor: 'my-monitor'
+rule_files:
+ - 'alert.rules'
+
+scrape_configs:
+ - job_name: 'prometheus'
+   static_configs:
+     - targets: ['127.0.0.1:9090']
+
+ - job_name: 'node-prometheus-local'
+   static_configs:
+     - targets: ['192.168.123.138:9100']
+
+ - job_name: 'node-master-cluster-ura'
+   static_configs:
+     - targets: ['192.168.225.63:9100']
+
+ - job_name: 'node-ura-unimed'
+   static_configs:
+     - targets: ['192.168.160.100:9100']
+
+ - job_name: 'node-agenteemcasa'
+   static_configs:
+     - targets: ['192.168.225.41:9100']
+
+ - job_name: 'agentvirasterisk4'
+   static_configs:
+     - targets: ['192.168.225.66:9100'] 
+
+ - job_name: 'agentvirasterisk5'
+   static_configs:
+     - targets: ['192.168.225.67:9100'] 
+
+ - job_name: 'agentvirasterisk6'
+   static_configs:
+     - targets: ['192.168.225.68:9100']
+
+ - job_name: 'mrv-voice-segunda-via'
+   static_configs:
+     - targets: ['192.168.168.250:9100'] 
+
+ - job_name: 'voicer-panda-ole'
+   static_configs:
+     - targets: ['192.168.160.62:9100'] 
+
+ - job_name: 'tim-voicer-proteu-bbs'
+   static_configs:
+     - targets: ['192.168.160.63:9100'] 
+
+
+ - job_name: 'ura-ole-ouvidoria'
+   static_configs:
+     - targets: ['192.168.167.30:9100'] 
+
+
+ - job_name: 'mrv-voicer-pesquisa-satisfacao-ole-seplag'
+   static_configs:
+     - targets: ['192.168.160.81:9100'] 
+
+ - job_name: 'pnb-cobranca'
+   static_configs:
+     - targets: ['192.168.224.59:9100'] 
+
+
+ - job_name: 'voicer-fca-voicer-unimed'
+   static_configs:
+     - targets: ['192.168.224.113:9100'] 
+
+ - job_name: 'pnb-marketing'
+   static_configs:
+     - targets: ['192.168.224.80:9100']
+
+
+ - job_name: 'voicer-claro-oracle-linux'
+   static_configs:
+     - targets: ['192.168.160.90:9100'] 
+
+
+ - job_name: 'ura-feedback-qualidade'
+   static_configs:
+     - targets: ['192.168.224.16:9100'] 
+
+
+ - job_name: 'voicer-fleury'
+   static_configs:
+     - targets: ['192.168.127.10:9100']
+
+ 
+ - job_name: 'ura zurich'
+   static_configs:
+     - targets: ['192.168.224.119:9100'] 
+
+
+ - job_name: 'vm-pa-digital'
+   static_configs:
+     - targets: ['192.168.160.59:9100'] 
+
+
+ - job_name: 'unimed-agendamento-consulta'
+   static_configs:
+     - targets: ['192.168.160.57:9100'] 
+
+
+ - job_name: 'server-cpqd'
+   static_configs:
+     - targets: ['192.168.160.51:9100'] 
+
+ - job_name: 'server-asterisk-teste-cpqd'
+   static_configs:
+     - targets: ['192.168.160.48:9100'] 
+
+ - job_name: 'agente-virtual-net-producao'
+   static_configs:
+     - targets: ['192.168.224.169:9100'] 
+
+
+ - job_name: 'panda-oi'
+   static_configs:
+     - targets: ['192.168.224.115:9100'] 
+
+
+ - job_name: 'ura-pesquisa-satisfacao-fca-too-seguros'
+   static_configs:
+     - targets: ['192.168.224.144:9100'] 
+
+
+ - job_name: 'ura-zurich-homolog'
+   static_configs:
+     - targets: ['192.168.225.133:9100'] 
+
+ - job_name: 'agente-virtual-projeto-unimed-nao-cti'
+   static_configs:
+     - targets: ['192.168.160.60:9100'] 
+
+ - job_name: 'discador-localiza'
+   static_configs:
+     - targets: ['192.168.160.97:9100'] 
+
+ - job_name: 'agentvirasterisk1-cluster-novo'
+   static_configs:
+     - targets: ['192.168.225.63:9100','cadvisor:8080']
+
+ - job_name: 'agentvirasterisk3-cluster-novo'
+   static_configs:
+     - targets: ['192.168.225.65:9100'] 
+
+
+ - job_name: 'agentvirasterisk7-cluster-novo'
+   static_configs:
+     - targets: ['192.168.225.69:9100'] 
+
+
+ - job_name: 'node-containers'
+   static_configs:
+     - targets: ['192.168.225.63:8080'] 
+
+
+
+alerting:
+  alertmanagers:
+  - static_configs:
+    - targets:
+      - alertmanager:9093
